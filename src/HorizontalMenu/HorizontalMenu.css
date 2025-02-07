@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .li {
+    float: left;
+  }
+  .lifloatRight {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    padding: 8px;
+    color: white;
+    background-color: black;
+  }

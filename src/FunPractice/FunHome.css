@@ -1,0 +1,11 @@
+.main {
+    position: fixed;
+    top: 20px;
+    left: 25%;;
+    background-color: #c72626;
+    border: 2px;
+    stroke: 2px;
+    border-radius: 25px 25px 25px 25px ;
+        width: 50%;
+    height: 30px;
+}   
