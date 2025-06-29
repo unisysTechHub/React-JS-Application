@@ -1,0 +1,45 @@
+/* AccountTable.css */
+.account-table {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 80%;
+  margin: 2rem auto;
+  background-color: white;
+
+}
+
+.account-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-table th,
+.account-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.account-table th {
+  background-color: #f2f2f2;
+}
+
+.account-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.account-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #007bff;
+}

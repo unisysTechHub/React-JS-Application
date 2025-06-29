@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 80%;
+  margin: 2rem auto;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.message {
+  font-size: medium;
+}
+.logo {
+  width: 50px;
+  height: 20px;
+    background-color: rebeccapurple;
+
+  
+}
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.cell {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #b41616;
+  vertical-align: top;
+}
+
+.label {
+  font-weight: bold;
+  background-color: #f5f5f5;
+  margin-right: 0px;
+}
+
+.value {
+  background-color: #f5f5f5;
+
+}

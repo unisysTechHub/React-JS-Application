@@ -3,27 +3,38 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {appStore } from './Store/UserStore'
+import { appStore } from './Store/UserStore'
 import { Provider } from 'react-redux';
-import App1 from './Router1/Router';
-import { Component1Navigation } from './Navigation/Navigation';
-import App11 from './Router1/Router';
 import { Home } from './Home/Home';
 import { fundDetailsStore } from './Store/FundStore';
-import { FunHome } from './FunPractice/FunHome';
-import { CenterContainer } from './FunPractice/CenterContainer';
-import { HorizontalPager, OverlappingDivs } from './FunPractice/HorizontalPager';
+import * as schedule from './Store/EMIScheduleStore'
+import EMISchedule from './EMISchedule/EMISchedule';
+import { BeneficiaryTypes } from './FundTransfer/Beneficiary/Beneficiary';
+import RouterComponent from './FundTransfer/Router/RouterComponent';
+import NavMenu, { SideNav } from './CommonComponents/Navigation/Nav-Menu/Nav-menu';
+import { SideNavMenu } from './CommonComponents/Navigation/Side-nav-menu/Side-nav-menu';
+import { BrowserRouter } from 'react-router-dom';
+import {
+  QueryClient,
+  QueryClientProvider
+} from "@tanstack/react-query";
+import MainDashboard from './FundTransfer/Transfer/TransactionHistory/MainDashboard';
+import EmiScheduleSkeleton from './EMISchedule/emiScheduleSkeleton';
+import EMIscheduleCalc from './EMISchedule/EMISchedule';
+
+const queryClient = new QueryClient(); // ✅ lowercase – instance
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={appStore} >
-      <div id="root">
-        <OverlappingDivs></OverlappingDivs>
-
-        </div>
+      <h3 style={{color:'white', width:"200px", textAlign:"center"}}> React JS app</h3>
+      <NavMenu></NavMenu>
+      {/* <QueryClientProvider client={queryClient}>
+      <EMIscheduleCalc></EMIscheduleCalc>
+  </QueryClientProvider> */}
     </Provider>
-
   </React.StrictMode>
 );
 

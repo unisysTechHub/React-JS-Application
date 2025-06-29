@@ -1,15 +1,18 @@
-import React, { useReducer } from "react";
-import { combineReducers, configureStore, createSelector, createSlice } from '@reduxjs/toolkit';
+import { applyMiddleware, combineReducers, configureStore } from '@reduxjs/toolkit';
 import { fundDetailsReducer } from "./FundStore";
+import emiReducer from "./EMIScheduleStore";
+import { thunk } from 'redux-thunk';
+import { accountReducer } from './AccountsStore';
+import { beneficiaryReducer } from './BeneficiariesStore';
 
-
-var initalUserStore = {userId : "default user"
-} 
+var initalUserStore = {
+    userId: "default user"
+}
 const ADD_USER_DETAILS = "ADD_USER_DETAILS"
 const userReducer = (state = initalUserStore, action) => {
     switch (action.type) {
         case ADD_USER_DETAILS:
-            return {  ...action.payload };
+            return { ...action.payload };
         default:
             return state;
     }
@@ -47,6 +50,10 @@ export const selectUsertata = state => state
 //   [selectUsertata],
 //   data => data
 // );
-const appReducers =combineReducers({userStore : userReducer, fundDetailsStore : fundDetailsReducer})
-export  const appStore = configureStore({ reducer: appReducers })
+const appReducers = combineReducers({
+    userStore: userReducer, fundDetailsStore: fundDetailsReducer,
+    accountsStore: accountReducer, beneficiaryStore: beneficiaryReducer
+})
+export const appStore = configureStore({ reducer: appReducers, thunk: applyMiddleware(thunk) })
 
+//const store = createStore(rootReducer, applyMiddleware(thunk));

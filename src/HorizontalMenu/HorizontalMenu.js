@@ -1,9 +1,12 @@
 import React    from "react";
 import template from "./HorizontalMenu.jsx";
 import { Link } from "react-router-dom";
+import { string } from "prop-types";
 
 class HorizontalMenu extends React.Component {
   constructor(props) {
+
+    var x = "Test"
     super(props)
     this.state = {onMouseOver : false}
    this.onMouseOver =  this.onMouseOver.bind(this)

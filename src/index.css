@@ -6,17 +6,53 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  width: 100vw; /* 100% of the viewport width */}
+  width: 100vw;
+  /* 100% of the viewport width */
+}
+@media (min-width: 375px) and (max-width: 379px) {
+  body {
+    font-size: 4px; /* slightly smaller font size for iPhone SE */
+  }
+}
 
+/* Target iPhone 12 Pro (390px width) */
+@media (min-width: 380px) and (max-width: 415px) {
+  body {
+    font-size: 8px; /* slightly bigger font size for iPhone 12 Pro */
+  }
+}
+@media (min-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Small Desktop (≥ 900px) */
+@media (min-width: 900px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Large Desktop (≥ 1200px) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 #root {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: gray;
   overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start
 }
 
 .leftBox {
@@ -29,6 +65,7 @@ code {
   height: 30px;
   width: 150px;
 }
+
 .rightBox {
   position: fixed;
   right: 50px;
@@ -43,11 +80,27 @@ code {
 .centerContainer {
   position: fixed;
   background-color: white;
-  top : 100px;
-  left : 75px;
+  top: 100px;
+  left: 75px;
   right: 75px;
   width: 75%;
 }
+
+.scheduleContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+
+}
+.logo {
+  display: block;
+  top: 10px;
+  left: 10px;
+  width: 30%;
+  height: 200px;
+  background-color: rgb(172, 22, 22);
+  z-index: 10000;
+}
+
 /* App.css */
-
-

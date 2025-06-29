@@ -1,0 +1,35 @@
+.emi-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Horizontally center contents */
+  justify-content: center;
+  /* Vertically center if needed */
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+}
+
+.emi-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.emi-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.emi-table th,
+.emi-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.emi-table thead {
+  background-color: #f0f0f0;
+}

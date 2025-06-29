@@ -3,6 +3,7 @@ import { selectUserStore, fetchUserDetails } from '../Store/UserStore';
 import {useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import { fetchFundDetails } from '../Store/FundStore';
+import { fetchEMIScehdule, scheduleData } from '../Store/EMIScheduleStore';
 
 
 export function Home (){
@@ -12,6 +13,7 @@ export function Home (){
   useEffect(() => {
     console.log("useeffect called")
     fetchFundDetails()
+    fetchEMIScehdule()
    }
    ,[])
 
@@ -57,7 +59,6 @@ return (
  </div>
 );
 };
-
 
 
 class User extends React.Component {

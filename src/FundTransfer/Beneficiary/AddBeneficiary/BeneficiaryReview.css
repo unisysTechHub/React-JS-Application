@@ -1,0 +1,90 @@
+/* DisplayBeneficiary.css */
+
+.beneficiary-review-container {
+    display: flex;
+    flex-direction: column;
+    
+       padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(177, 39, 39, 0.1);
+      width: 80%;
+      height: 90%;
+      margin: 2rem auto;
+      background-color: #ebe8f0;
+      overflow-y: auto;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .title {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .beneficiary-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+  }
+  
+  .beneficiary-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .beneficiary-item:last-child {
+    border-bottom: none;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 0px;
+  }
+  
+  .row {
+    display: flex;
+    width: 60%;
+  }
+  
+  .cell {
+   flex: 1;
+    padding: 8px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+     
+  }
+  
+  
+  
+  .value {
+    background-color: #f5f5f5;
+
+  }
+  .no-data {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #888;
+  }
+  .button {
+     margin-top: 16px;
+    display: flex;
+    font-size: 1.5rem;
+    color: #007bff;
+    background-color: #ccc;
+    width: 40%;
+    height: 10%;
+    justify-content: center;
+  }
+  .submit {
+    margin-top: 15px;
+    height: 50%;
+    width: 50%;
+    background-color: rgb(194, 58, 58);
+    color: white;
+            
+  }
