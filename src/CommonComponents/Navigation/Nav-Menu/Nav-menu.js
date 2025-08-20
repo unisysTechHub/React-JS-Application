@@ -13,6 +13,7 @@ import { TransferForm } from '../../../FundTransfer/Transfer/TransferForm/Transf
 import { TransferReiview } from '../../../FundTransfer/Transfer/TransferForm/TransferReview';
 import { FundStransferProvider } from '../../../FundTransfer/Transfer/TransferForm/FundTransferProvider';
 import { TransferFlow } from '../../../FundTransfer/Transfer/TransferForm/TransferFlow';
+import { Healthz } from '../../../Health/Healthz';
 
 const navItems = [
   { title: "Home" },
@@ -62,6 +63,7 @@ function NavMenu() {
             <Route path="/home/fundtransfer/domesticWire/*" element={<FundStransferProvider>{<TransferFlow transferType="DomesticWire" />}</FundStransferProvider>} />
             <Route path="/home/fundtransfer/international/*" element={<FundStransferProvider>{<TransferFlow transferType="International" />}</FundStransferProvider>} />
             <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/healthz" element={<Healthz></Healthz>} />
             <Route path="/cards" element={<Cards />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />

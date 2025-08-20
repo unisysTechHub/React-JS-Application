@@ -26,7 +26,7 @@ const BeneficiaryForm = ({ beneficiaryType }) => {
   return (
     <Fragment>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)} className="form-container">
+        <form  onSubmit={methods.handleSubmit(onSubmit)} className="form-container">
           <h2>Beneficiary Details</h2>
 
           <InputField name="AccountNumber" label="Account Number" />

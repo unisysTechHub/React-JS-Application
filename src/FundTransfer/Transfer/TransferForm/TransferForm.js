@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useContext, useEffect, useRef, useState } from "react"
+import { Suspense, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchBeneficiaries } from "../../../Store/BeneficiariesStore"
 import { fetchAccounts } from "../../../Store/AccountsStore"
@@ -18,6 +18,8 @@ export const TransferForm = (props) => {
   const {
     beneficiaries,
     status: beneficiaryStatus,
+
+    
     error: beneficiaryError
   } = useSelector(state => state.beneficiaryStore);
 
@@ -54,12 +56,14 @@ export const TransferForm = (props) => {
     navigate("/home/fundtransfer/domesticWire/review")
   }
 
-  const beneficiaryOptions = useCallback(() => {
+  const beneficiaryOptions = useMemo(() => {
     return beneficiaries?.filter(getfilterBeneficiaries) || []
   }, [beneficiaries])
 
   const onBeneficiarySelected = (e) => {
+    console.log(e)
     console.log(e.target.value)
+    
     const index = e.target.value;
 
     if (index !== "") {
@@ -134,7 +138,7 @@ export const TransferForm = (props) => {
     }
   }, [selectedFromAccount, selectedBeneficiary, amount]);
    
-  const defaultFromAccountValue = useCallback(() => {
+  const defaultFromAccountValue = useMemo(() => {
     if (accounts && accounts.length > 0) {
         formErrors["fromAccount"] = '';
         setSelectedFromAccount(accounts[0]);
@@ -145,7 +149,7 @@ export const TransferForm = (props) => {
     }
 }, [accounts]);
 
-   const defaultSelectBeneficiary = useCallback(() => {
+   const defaultSelectBeneficiary = useMemo(() => {
   if (beneficiaries && beneficiaries.length > 0)
   {
     formErrors["beneficiary"] = ""
@@ -170,7 +174,7 @@ export const TransferForm = (props) => {
         <select required={true}
           onChange={onFromAccountSelected}
         >
-          <option value="">{defaultFromAccountValue()}</option>
+          <option value="">{defaultFromAccountValue}</option>
           {accounts.map((account, index) => (
             <option key={index} value={index}>
               {account.accountNumber + ' - ' + account.usBankAccount.account_type}
@@ -183,8 +187,8 @@ export const TransferForm = (props) => {
       <label>
         Select Beneficiary:
         <select name="Beneficiary" onChange={onBeneficiarySelected} >
-          <option value="">{defaultSelectBeneficiary()}</option>
-          {beneficiaryOptions().map((beneficiary, index) => (
+          <option value="">{defaultSelectBeneficiary}</option>
+          {beneficiaryOptions.map((beneficiary, index) => (
             <option key={index} value={index}>
               {beneficiary.beneficiaryName}
             </option>

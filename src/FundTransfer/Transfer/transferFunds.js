@@ -79,5 +79,7 @@ const InitTransferResponseModel = {
       "transactionsInternal": null
     },
     "description": "Intra transer \" + \"to\" + John Doe"
+    
   }
+   
 }

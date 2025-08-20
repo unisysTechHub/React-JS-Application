@@ -95,13 +95,13 @@ const IntraTransferForm = ({ transferType }) => {
     const pattern = /^\d+(\.\d{0,2})?$/;
     return pattern.test(value) && parseFloat(value) > 0;
   };
-  const isValidFormData = useCallback(() => { return (fromAccount !== null && toAccount !== null && amountError === '') }, [fromAccount, toAccount, amountError]);
+  const isValidFormData = useMemo(() => { return (fromAccount !== null && toAccount !== null && amountError === '') }, [fromAccount, toAccount, amountError]);
   const handleAmountChange = (e) => {
     const value = e.target.value;
     if (value === '' || isValidAmount(value)) {
       setAmount(value);
       setAmountError('');
-      if (isValidFormData()) {
+      if (isValidFormData) {
         setDisableButton(false)
       } else { setDisableButton(true) }
 
@@ -150,7 +150,7 @@ const IntraTransferForm = ({ transferType }) => {
             value={fromAccount}
             onChange={(e) => {
               setSelectedFromAccount(e.target.value)
-              setDisableButton(isValidFormData())
+              setDisableButton(isValidFormData)
             }}
           >
             <option >-- Choose an account --</option>
@@ -169,7 +169,7 @@ const IntraTransferForm = ({ transferType }) => {
             value={toAccount}
             onChange={(e) => {
               setSelectedTOAccount(e.target.value)
-              setDisableButton(isValidFormData())
+              setDisableButton(isValidFormData)
             }}
           >
             <option >-- Choose an account --</option>

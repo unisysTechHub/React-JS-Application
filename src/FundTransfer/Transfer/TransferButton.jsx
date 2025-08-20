@@ -2,6 +2,7 @@ import React from 'react';
 import '../Transfer/styles/Transfer.css';
 
 const TransferButton = React.memo(({ onTransfer, disabled }) => {
+  
   console.log("🔁 TransferButton rendered");
 
   return (
