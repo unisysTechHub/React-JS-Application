@@ -1,8 +1,9 @@
+import ApiConfig from "./ApiConfig"
 
 
 export async function addBeneficiary(beneficiary) {
   try {
-    const res = await fetch("http://127.0.0.1:8082/api/transfer/addBeneficiary", {
+    const res = await fetch(ApiConfig.baseURL +"/api/transfer/addBeneficiary", {
       body: JSON.stringify({ userId: "user123", ...beneficiary }),
       headers: [["Content-Type", "application/json"]],
       method: "POST"

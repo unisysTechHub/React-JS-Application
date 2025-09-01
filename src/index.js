@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { appStore } from './Store/UserStore'
+import { appStore } from './Store/Store'
 import { Provider } from 'react-redux';
 import { Home } from './Home/Home';
 import { fundDetailsStore } from './Store/FundStore';

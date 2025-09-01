@@ -1,7 +1,5 @@
 
-
 import { configureStore, createSelector, createSlice } from '@reduxjs/toolkit';
-import { appStore } from './UserStore';
 
 var fundDetails = {
     balance: { amount: 50, curreny: "INR" }
@@ -22,9 +20,9 @@ export const fundDetailsReducer = (state = fundDetails, action) => {
 
 export function fetchFundDetails() {
     fetch("/fundetails").then((fundDetailsResponse) => {
-        appStore.dispatch(updateFundDetails({ balance: { amount: 100, curreny: "INR" } }))
+        fundDetailsStore.dispatch(updateFundDetails({ balance: { amount: 100, curreny: "INR" } }))
     }).catch((errorRespose) => {
-        appStore.dispatch(updateFundDetails({ balance: { amount: 100, curreny: "INR" } }))
+        fundDetailsStore.dispatch(updateFundDetails({ balance: { amount: 100, curreny: "INR" } }))
 
     })
 }

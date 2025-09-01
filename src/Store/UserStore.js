@@ -1,59 +1,27 @@
-import { applyMiddleware, combineReducers, configureStore } from '@reduxjs/toolkit';
-import { fundDetailsReducer } from "./FundStore";
-import emiReducer from "./EMIScheduleStore";
-import { thunk } from 'redux-thunk';
-import { accountReducer } from './AccountsStore';
-import { beneficiaryReducer } from './BeneficiariesStore';
+import { createSlice } from '@reduxjs/toolkit';
 
-var initalUserStore = {
-    userId: "default user"
-}
-const ADD_USER_DETAILS = "ADD_USER_DETAILS"
-const userReducer = (state = initalUserStore, action) => {
-    switch (action.type) {
-        case ADD_USER_DETAILS:
-            return { ...action.payload };
-        default:
-            return state;
+const initialState = { userId: "default user", user: "" };
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    addUserDetails: (state, action) => {
+      return { ...state, ...action.payload };
     }
-}
-//initalUserStore.prototype.fetchUserDetails = fetchUserDetails
-function addUserDetails(payload) {
-    return {
-        type: ADD_USER_DETAILS,
-        payload,
-    }
-}
+  }
+});
 
-export function fetchUserDetails() {
-    fetch("/userdetails").then((userDetailsResponse) => {
-        appStore.dispatch(addUserDetails({ user: "RameshErrr", userId: "Ranesh5petnaSucess" }))
-    }).catch((error) => {
-        appStore.dispatch(addUserDetails({ user: "RameshErrr", userId: "Ranesh5petnaErr" }))
+export const { addUserDetails } = userSlice.actions;
 
-    })
-}
+export const fetchUserDetails = () => async dispatch => {
+  try {
+    const response = await fetch("/userdetails");
+    // parse response if needed
+    dispatch(addUserDetails({ user: "user", userId: "USERiD" }));
+  } catch (error) {
+    dispatch(addUserDetails({ user: "user", userId: "userID" }));
+  }
+};
 
-// export const userStoreSlice  = createSlice({
-//     name: 'userStore',
-//     initialState: {
-//               },
-//     reducers: [userReducer
-//     ],
-//       // other reducers...
-//     },
-//   );
-export const selectUsertata = state => state
-
-// Create a memoized selector using createSelector
-// export const selectUserStore = createSelector(
-//   [selectUsertata],
-//   data => data
-// );
-const appReducers = combineReducers({
-    userStore: userReducer, fundDetailsStore: fundDetailsReducer,
-    accountsStore: accountReducer, beneficiaryStore: beneficiaryReducer
-})
-export const appStore = configureStore({ reducer: appReducers, thunk: applyMiddleware(thunk) })
-
-//const store = createStore(rootReducer, applyMiddleware(thunk));
+export default userSlice.reducer;
