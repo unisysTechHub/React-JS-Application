@@ -4,7 +4,7 @@ import { fetchBeneficiaries } from "../../../Store/BeneficiariesStore"
 import { fetchAccounts } from "../../../Store/AccountsStore"
 import { TransferValidationRules } from "../TransferValidationRules"
 import { transferFunds } from "../transferFunds"
-import { FundTransferContext, useTransferContext } from "./FundTransferProvider"
+import { FundTransferContext, useFundTransfer } from "./FundTransferProvider"
 import { useNavigate } from "react-router-dom"
 import './TransferForm.css'
 import TransferFormSkeleton from "./TransferFormSkeleton"
@@ -30,8 +30,8 @@ export const TransferForm = (props) => {
   } = useSelector(state => state.accountsStore);
 
   const navigate = useNavigate()
-  const { selectedBeneficiary, setSelectedBeneficary } = useTransferContext()
-  const { selectedFromAccount, setSelectedFromAccount } = useTransferContext()
+  const { selectedBeneficiary, setSelectedBeneficary } = useFundTransfer()
+  const { selectedFromAccount, setSelectedFromAccount } = useFundTransfer()
   const { amount, setAmount } = useTransferContext()
 
   const [formErrors, setFormErrors] = useState({});

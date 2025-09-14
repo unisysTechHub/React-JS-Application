@@ -5,13 +5,13 @@ import InputField from '../../../CommonComponents/InputField/InputField';
 import { addBeneficiary } from '../../../Store/Beneficary';
 import AlertDialog from '../../../CommonComponents/alertDialog/AlertDialog';
 import { useNavigate } from 'react-router-dom';
-import {  useBeneficiaryContext } from './BeneficiaryContext';
+import {  useBeneficiary } from './BeneficiaryContext';
 
 const BeneficiaryForm = ({ beneficiaryType }) => {
   const navigate = useNavigate()
   const methods = useForm();
   const [errorMessage, setErrorMessage] = useState(null);
-  const { setBeneficiaryData } = useBeneficiaryContext()
+  const { setBeneficiaryData } = useBeneficiary()
   const onSubmit = async (data) => {
     console.log("Form submitted:", data);
     setBeneficiaryData(data)

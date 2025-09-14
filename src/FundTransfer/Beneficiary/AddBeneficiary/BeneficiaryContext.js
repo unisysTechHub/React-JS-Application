@@ -13,4 +13,4 @@ export const AddBeneficiaryProvider = ({ children }) => {
     );
   };
 
-  export const useBeneficiaryContext = () => useContext(BeneficiaryContext);
+  export const useBeneficiary= () => useContext(BeneficiaryContext);

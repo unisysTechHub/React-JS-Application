@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './TransferReview.css'
 import { useCallback, useContext } from 'react'
-import { FundTransferContext, useTransferContext } from './FundTransferProvider'
+import { FundTransferContext, useFundTransfer } from './FundTransferProvider'
 import TransferButton from '../TransferButton'
 import { transferFunds } from '../transferFunds'
 import {motion} from 'framer-motion'
@@ -18,7 +18,7 @@ const buildTransferConfirmData = (transaction) => ({
 });
 export const TransferReiview = (props) => {
   const navigate = useNavigate()
-  const { selectedBeneficiary, selectedFromAccount,setTransferConfirmData ,amount} = useTransferContext()
+  const { selectedBeneficiary, selectedFromAccount,setTransferConfirmData ,amount} = useFundTransfer()
   
   const onSubmit = () => {
     navigate("/home/fundtransfer/domesticWire/status")

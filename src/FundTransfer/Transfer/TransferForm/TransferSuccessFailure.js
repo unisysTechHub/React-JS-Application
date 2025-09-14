@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import logo from '../../../logo.svg';
 import './TransferSuccessFailure.css'
-import { FundTransferContext, useTransferContext } from './FundTransferProvider';
+import { FundTransferContext, useFundTransfer } from './FundTransferProvider';
 import { TransferButton } from '../../../CommonComponents/button/TransferButton';
 import { useNavigate } from 'react-router-dom';
 import {motion} from 'framer-motion'
 
 export const TransferSucessFailure = ({ status = "Success" }) => {
   const navigate = useNavigate()
-  const { transferConfirmData } = useTransferContext()
+  const { transferConfirmData } = useFundTransfer()
  const navigateTo = () => {
   navigate("/home/fundtransfer")
  }

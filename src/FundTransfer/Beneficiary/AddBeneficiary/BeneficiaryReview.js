@@ -1,6 +1,6 @@
 // DisplayBeneficiary.js
 import React, { useContext, useState } from 'react';
-import {  useBeneficiaryContext,  } from './BeneficiaryContext';
+import {  useBeneficiary, useBeneficiaryContext,  } from './BeneficiaryContext';
 import './BeneficiaryReview.css'; // import the CSS file
 import AlertDialog from '../../../CommonComponents/alertDialog/AlertDialog';
 import { addBeneficiary } from '../../../Store/Beneficary';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { TransferButton } from '../../../CommonComponents/button/TransferButton';
 
 export const BeneficiaryReview = () => {
-  const { beneficiaryData } =useBeneficiaryContext();
+  const { beneficiaryData } =useBeneficiary();
   const [errorMessage, setErrorMessage] = useState(null)
   const navigate = useNavigate()
   if (!beneficiaryData) {

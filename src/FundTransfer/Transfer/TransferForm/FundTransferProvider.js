@@ -30,4 +30,4 @@ export const FundStransferProvider = ({ children }) => {
 
 }
 
-export const useTransferContext = () => useContext(FundTransferContext)
+export const useFundTransfer = () => useContext(FundTransferContext)
