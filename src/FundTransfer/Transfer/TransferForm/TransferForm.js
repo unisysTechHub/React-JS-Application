@@ -32,7 +32,7 @@ export const TransferForm = (props) => {
   const navigate = useNavigate()
   const { selectedBeneficiary, setSelectedBeneficary } = useFundTransfer()
   const { selectedFromAccount, setSelectedFromAccount } = useFundTransfer()
-  const { amount, setAmount } = useTransferContext()
+  const { amount, setAmount } = useFundTransfer()
 
   const [formErrors, setFormErrors] = useState({});
   const selectedBeneficiaryIndex = useRef(-1);
