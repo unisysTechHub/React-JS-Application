@@ -30,7 +30,7 @@ const IntraTransferForm = ({ transferType }) => {
   }, [dispatch]);
 
   const  toAccounts = useMemo(() => {
-  if (transferTypeRef.current === "Intra") {
+  if (transferTypeRef.current === "Intra" || transferTypeRef.current === "Internal") {
      return accounts.filter((account) => {
         return account.accountNumber !== fromAccount
       })
